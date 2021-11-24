@@ -8,3 +8,8 @@ Gebruikers kunnen zichzelf makkelijk registreren en inloggen. Hierna kunnen zij 
 In fase 2 van de applicatie kan er support voor live biedingen via opbod worden toegevoegd en betalingen via een externe betaling service als bijvoorbeeld Stripe.
 
 ---
+
+## Status Project
+De huidige status van dit project is terug te vinden onder het mapje Projects in GitHub.  
+Hierin staan welke features nog geprogrammeerd moeten worden, en wat de priority hiervan is. 
+Als begonnen wordt aan het implementeren van een feature gaat de status hiervan naar in progress, wanneer dit klaar is gaat de status naar done.

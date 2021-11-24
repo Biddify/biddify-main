@@ -1,6 +1,5 @@
 # Biddify | Rob Rutjes | Fontys ICT | Semester 3 | Onderzoek
 
-## Onderzoeken / Keuzen
 ### 1. Scrum software tools
 #### Azure DevOps
 ![Application Overview](https://i.ibb.co/hsV687F/downloads-1.jpg)

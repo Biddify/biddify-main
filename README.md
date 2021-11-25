@@ -1,5 +1,7 @@
 # Biddify | Rob Rutjes | Fontys ICT | Semester 3
 
+<img src="https://file.io/nLMSUtfFgq8L" width="100%" height="500"/>
+
 ## Omschrijving Project
 Biddify is een applicatie die voor gebruikers makkelijk gaat maken om tweedehands producten te kopen en verkopen.
 

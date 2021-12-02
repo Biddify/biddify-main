@@ -2,7 +2,6 @@
 
 ![5wbn06](https://user-images.githubusercontent.com/33746824/144393714-eaa2554e-a483-4519-ad94-f83c43b01a11.gif)
 
-
 ## Omschrijving Project
 Biddify is een applicatie die voor gebruikers makkelijk gaat maken om tweedehands producten te kopen en verkopen.
 

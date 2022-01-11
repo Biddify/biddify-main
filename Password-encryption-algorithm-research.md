@@ -302,8 +302,14 @@ https://en.wikipedia.org/wiki/Blowfish_(cipher)
 USENIX. (1999, 04 28). www.usenix.org. Opgehaald van usenix.org: 
 https://www.usenix.org/legacy/events/usenix99/provos/provos_html/node1.html
 
+Qvault. (2020, 08 24). www.qvault.io. Opgehaald van qvault.io:
+https://qvault.io/golang/bcrypt-step-by-step/
+
 Wikipedia. (2021, 11 21). www.wikipedia.org. Opgehaald van wikipedia.org:
 https://en.wikipedia.org/wiki/Bcrypt
+
+NPMjs. (2021, 01 01). www.npmjs.com. Opgehaald van npmjs.com:
+https://www.npmjs.com/package/bcrypt
 
 OWASP. (2021, 01 01). www.cheatsheetseries.owasp.org. Opgehaald van cheatsheetseries.owasp.org:
 https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#work-factors

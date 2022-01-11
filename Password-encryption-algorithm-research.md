@@ -10,6 +10,43 @@
     <img width="500px" height="100%" src="https://triple-p.nl/wp-content/uploads/2020/10/shutterstock_619615334-1-1024x731.jpg">
 </div>
 
+## Onderzoeksvraag
+
+**Hoofdvraag:** 
+
+Is het veilig om met Bcrypt wachtwoorden op te slaan?
+
+**Deelvragen:** 
+- Wat is Bcrypt?
+- Hoe werkt Bcrypt?
+- Waarom is Bcrypt veilig?
+- Hoe implementeer je Bcrypt?
+
+## Inleiding
+Als je een applicatie maakt waarbij een gebruiker moet kunnen inloggen, krijg je waarschijnlijk te maken met het opslaan van wachtwoorden. 
+Het opslaan van wachtwoorden brengt beveiligingsrisico's met zich mee. Bijvoorbeeld een hacker die in uw database inbreekt en alle wachtwoorden steelt. 
+Hoe kun je het beste wachtwoorden opslaan op een veilige manier? 
+
+| Tier   |        Beveiliging         |  
+|--------|:--------------------------:|
+| S-tier  |            ???            |
+| A-tier |        Slow Hashing        |
+| B-tier | Hashing + Salting (Bcrypt) |
+| C-tier |          Hashing           |
+| D-tier |         Encrypting         |
+| F-tier |     Storing Plaintext      |
+
+Hierboven staat een tabel, met onderaan de slechtste manier om dit te toen.  
+De `F-tier` manier om data op te slaan is net zoals normale text. Als er een inbraak plaats vind op uw database heeft de hacker gelijk toegang tot alle wachtwoorden. 
+Hoe kunnen we het beter doen? In de `D-tier` kunnen we ervoor kiezen om encryptie toe te passen op onze wachtwoorden. Hierbij moet je op een veilige plaats een decryptie key opslaan. 
+Als deze door een hacker buit word gemaakt zijn we weer terug bij de `F-tier`. Dan kan hij namelijk de wachtwoorden weer terug omzetten. Om bij de `D-tier` uit te komen willen we weten of het wachtwoord ingevoerd bij het registeren hetzelfde is als bij het inloggen. 
+Om dit te verifiëren hoeven we het wachtwoord zelf niet te hebben. Hoe gaan we dit doen? Bij het registeren pakken we het wachtwoord, hiervan maken we een hash, deze slaan we op in de database in plaats van het echte wachtwoord. 
+In de toekomst als de gebruiker probeert in te loggen pakken we het wachtwoord dat hij ingevoerd heeft. Deze sturen we door hetzelfde hashing proces heen. Hierna vergelijken we of de hashes gelijk aan elkaar zijn. 
+Helaas zijn we hiermee nog niet helemaal veilig voor hacker. Je bent hiermee nog steeds vatbaar voor "dictionary attacks" of "rainbow tables" dit een lijst met veel voorkomende wachtwoorden gehasht, deze kan een hacker vergelijken met de wachtwoorden in de database.
+Laten we veder gaan naar de `B-tier` om te kijken hoe we ons hier tegen kunnen beschermen. Als de gebruiker zichzelf registreert, plaatsen we voor de hash een random array ook wel een salt genoemd. Hierdoor zijn "rainbow tables" niet meer te gebruiken omdat deze hashes bevatten zonder salt, en de wachtwoorden dus niet gelijk aan elkaar zullen zijn. 
+Met krachtige hardware kan een hacker nog steeds alle mogelijkheden gaan uitproberen. Hoe beschermen we ons hiertegen? Daarvoor hebben we de `A-tier`. Bcrypt is bijvoorbeeld ontwikkeld om heel langzaam te zijn, veel energie te verbruiken & memory. 
+Hierdoor kan het vrijwel onmogelijk worden om wachtwoorden te gaan gokken. Door Bcrypt zullen veel hacker afhaken. 
+
 ## Wat is Bcrypt?
 Bcrypt is ontworpen door [Niels Provos](https://twitter.com/NielsProvos) en David Mazières [David Mazières](https://twitter.com/dmazieres)
 en is gebaseerd op [Blowfish](https://en.wikipedia.org/wiki/Blowfish_(cipher)). De B staat voor Blowfish en crypt voor de naam van de hashing functie gebruikt door het UNIX-wachtwoord systeem.
@@ -141,6 +178,7 @@ waardoor het bedrijf en zijn gebruikers kostbare tijd krijgen om hun wachtwoorde
 
 ## Hoe implementeer je Bcrypt?
 Hieronder een korte omschrijving over hoe de implementatie van Bcrypt met gebruik van Node.js in zijn werk gaat. 
+Alle code staat ook in volgende [GitHub repository](https://github.com/Rob-Rutjes/Bcrypt-S3-FHICT).
 
 `Node.bcrypt.js` wordt geïnstalleerd via `npm` (Node.js package manager), met het volgende command: 
 
@@ -216,7 +254,7 @@ bcrypt
   .catch(err => console.error(err.message));
 ```
 
-In het bovenstaande voorbeeld is de `res` `true`, dit geeft aan dat het `password` na dat het gehashed is gelijk is aan het opgeslagen wachtwoord `hash`.
+In het bovenstaande voorbeeld is de `res` `true`, dit geeft aan dat het `password` na dat het gehasht is gelijk is aan het opgeslagen wachtwoord `hash`.
 
 Als we het `password` vervangen met een ander wachtwoord verwachten we als `res` `false` is. 
 
@@ -245,6 +283,17 @@ Hash: $2b$15$Wx.kUJY72dw5fkMxMm4R5ejJ7NReyF7iB3A0mZtfX6BpvH0UXi9m6
 ```
 
 `bcrypt.compare` scheid het `salt` van de hash. En hashed vervolgens het verstrekte wachtwoord en vergelijkt deze. 
+
+## Conclusie
+Geen enkel opgeslagen wachtwoord is veilig voor hackers, wat programmeurs wel kunnen doen is het hun zo lastig mogelijk maken.
+`Bcrypt` is zeer intelligente software welke kan helpen bij het veilig opslaan van wachtwoorden in een database. 
+Wel moet hierbij een (klein) onderzoek gedaan worden voor welke work factor gebruikt moet worden. 
+Met een te hoge work factor krijgen gebruikers met lage hardware specificaties lange wachttijden.
+`Bcrypt` komt nieuwe hardware extreem goed tegemoet, waardoor wachtwoorden nog lang veilig blijven.
+In de tabel in de inleiding is nog een tier leeg de `S-tier`. Wat houd deze dan in? 
+Het aller veiligste is om helemaal geen wachtwoorden op te slaan in je database. 
+Dit kun je doen door gebruik te maken van externe authenticatie systemen bijvoorbeeld Google, Facebook & Auth0. 
+Dan zorgen zij voor de wachtwoorden en kunnen deze ook niet gehackt worden. 
 
 ## Bibliografie
 Wikipedia. (2021, 11 02). www.wikipedia.org. Opgehaald van wikipedia.org:

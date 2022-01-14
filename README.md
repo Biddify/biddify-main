@@ -8,9 +8,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/Biddify/biddify-main?logo=GitHub)](https://github.com/Biddify/biddify-main/issues)
 
 #### [Biddify-product-node.js](https://github.com/Biddify/biddify-product-node.js)
-![workflow](https://github.com/Biddify/biddify-product-node.js/actions/workflows/docker.yml/badge.svg)
-![workflow](https://github.com/Biddify/biddify-product-node.js/actions/workflows/integration-unit-test.yml/badge.svg)
-![workflow](https://github.com/Biddify/biddify-product-node.js/actions/workflows/sonar-cloud.yml/badge.svg)
+![workflow](https://github.com/Biddify/biddify-product-node.js/actions/workflows/main.yml/badge.svg)
 [![GitHub issues](https://img.shields.io/github/issues/Biddify/biddify-product-node.js?logo=GitHub)](https://github.com/Biddify/biddify-product-node.js/issues)
 
 #### [Biddify-react.js](https://github.com/Biddify/biddify-react.js)
@@ -67,21 +65,18 @@ Finally, to start all the project containers in docker you run the following com
 
 | **Service** | **URL**                                          |
 | --- |--------------------------------------------------|
-| biddify-product-database | [http://localhost:3306](https://localhost:3306)  |
-| biddify-product-db-admin | [http://localhost:8080](https://localhost:8080)  |
-| biddify-product-node.js | [http://localhost:3002](https://localhost:3002)  |
-| biddify-react.js | [http://localhost:3001](https://localhost:3001)  |
+| biddify-product-database | [http://localhost:3306](http://localhost:3306)  |
+| biddify-product-db-admin | [http://localhost:8080](http://localhost:8080)  |
+| biddify-product-node.js | [http://localhost:3002](http://localhost:3002)  |
+| biddify-react.js | [http://localhost:3001](http://localhost:3001)  |
 
-## API
+## API Documentation
 
-[Product Node.js](https://github.com/Biddify/biddify-product-node.js) API ([http://localhost:3002](https://localhost:3002))
+The API documentation is automatically generated with [Swagger](https://swagger.io/). 
 
-| **Route** | **Action** | **Method** | **Body** |
-| --- | --- | --- | --- |
-| api/products/ | Find all | Get | |
-| api/products/:id | Find one | Get | |
-| api/products/ | Create  | Post | `{title : string, description : string}` |
-| api/products/:id | Update | Put | `{title : string, description : string}` |
+After `http://localhost:{PORT}` add `/api-docs` for the Swagger documentation. 
+
+For example (product API): `http://localhost:3002/api-docs`. 
 
 ## Coding Conventions
 

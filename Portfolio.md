@@ -37,7 +37,7 @@ Bron:
 
 ### Identity service Auth0
 Het inlog/registratie systeem laat ik afhandelen door [Auth0](https://auth0.com/). 
-Zelf is het heel lastig om een veilig inlog/registratie systeem te bouwen. 
+Zelf is het lastig om een veilig login/registratie systeem te bouwen. 
 Momenteel zijn producten nog niet gekoppeld aan gebruikers, maar dit kan later zeer eenvoudig toegevoegd worden. 
 
 ![](https://i.ibb.co/tbf7PbK/Auth0.png)
@@ -48,15 +48,16 @@ Bron:
 ## 2. You use software tooling and methodology that continuously monitors and improve the software quality during software development.
 
 ### Integration tests
-Testen zijn erg belangrijk, deze helpen bij het voorkomen van bugs in de applicatie. Voor mijn tests gebruik ik [Supertest](https://www.npmjs.com/package/supertest). De testen zijn gebaseerd op een user story. 
-Ik maak gebruik van een test database omdat dit aangereden/ondersteund word door Sequelize. Op het begin gebruikte ik hiervoor een MySQL database, maar omdat deze veel opstart tijd heeft, ben ik later overgeschakeld naar een SQLite database. 
-De onderstaande testen zijn integratie testen, unit testen zijn in mijn geval overbodig omdat ik hiermee alleen de ORM zou testen, als het goed is test Sequelize deze zelf. 
+Testen zijn erg belangrijk, deze helpen bij het voorkomen van bugs in de applicatie. Voor mijn tests gebruik ik [Supertest](https://www.npmjs.com/package/supertest). De testen zijn gebaseerd op user stories. 
+Ik maak gebruik van een test database omdat dit aangereden/ondersteund is door Sequelize. Op het begin van dit semester gebruikte ik hiervoor een MySQL database, maar omdat deze veel opstart tijd heeft, ben ik later overgeschakeld naar een SQLite database. 
+De onderstaande testen zijn integratie testen, unit testen zijn in mijn geval overbodig omdat ik hiermee alleen de ORM zou testen, als het goed is test Sequelize dit zelf. 
 
 ![](https://i.ibb.co/3spNkZp/Product-tests.png)
 
 ### Automatisch testen op pull requests
 De bovenstaande integratie testen worden automatisch uitgevoerd op een pull request naar de master branch.  
 Hiervoor gebruik ik GitHub actions met de onderstaande workflow. Verder zit hier ook een code analyse in via [SonarCloud](https://sonarcloud.io/), deze checkt verschillende dingen zoals de code coverage (testen), code smells, bugs, vulnerabilities & duplications.
+
 ```
 name: Build, SonarCloud & Docker
 
@@ -125,18 +126,77 @@ jobs:
 
 ### Code review GitHub
 
-## 3. You design and implement a (semi)automated software release process that matches the needs of the project context.
+## 3. You design and implement a (semi)automated software release process.
 
-### 1. Docker containers
+### Docker images/containers
+Voor mijn project heb ik momenteel 4 docker containers, front-end React.js, Product Node.js, Product MySQL, Product MySQL admin. 
+In de readme.md van de [Biddify-main](https://github.com/Biddify/biddify-main) repository staat een uitleg hoe alle docker containers op te starten.
 
-### 2. Deploy webservices with Github actions
+![](https://i.ibb.co/92mmrBd/Dockerhub.png)
+
+![](https://i.ibb.co/VLNSkZb/Docker-desktop.png)
+
+Nadat de `Build` en `SonarCloud` GitHub actions succesvol zijn uitgevoerd, draait automatisch het aanmaken van de [Docker](https://www.docker.com/) image, als deze is aangemaakt stuurt hij deze door naar mijn [DockerHub](https://hub.docker.com/) account.
+
+```
+docker:
+needs: [build, sonarcloud]
+runs-on: ubuntu-latest
+steps:
+  - name: Check Out Repo 
+    uses: actions/checkout@v2
+
+  - name: Login to Docker Hub
+    uses: docker/login-action@v1
+    with:
+      username: ${{ secrets.DOCKER_USERNAME }}
+      password: ${{ secrets.DOCKER_PASSWORD }}
+
+  - name: Set up Docker Buildx
+    id: buildx
+    uses: docker/setup-buildx-action@v1
+
+  - name: Build and push
+    id: docker_build
+    uses: docker/build-push-action@v2
+    with:
+      context: ./
+      file: ./Dockerfile
+      push: true
+      tags: robfontys/biddify-product-node.js:latest
+
+  - name: Image digest
+    run: echo ${{ steps.docker_build.outputs.digest }}
+```
+
+![](https://i.ibb.co/prWVF37/Github-actions-docker.png)
+
+![](https://i.ibb.co/VQvjS2h/Dockerhub-product-service.png)
 
 ## 4. You act in a professional manner during software development and learning.
 
-### 1. Contribute to open source
+### Project board
 
-### 2. Project board
+Voor Biddify heb ik twee project dashboarden gemaakt. De eerste is voor de user stories en de status (ToDo, In Progress & Done) hiervan. 
+In de overschrijving van elke issue staat een lijstje met dingen die gedaan moeten worden voordat deze gesloten kan worden.
+Het andere dashboard is voor bugs. In de omschrijving staat een uitleg van het probleem. En eventueel wat er al onderzocht is. 
 
-### 3. GitHub flow
+![](https://i.ibb.co/vqjbFVY/Github-project-dashboard.png)
 
-### 4. Research
+![](https://i.ibb.co/0243qfT/Github-issue-feature.png)
+
+![](https://i.ibb.co/8s2wgRt/Github-issue-dashboard.png)
+
+![](https://i.ibb.co/pWdk2MM/Github-issue-bug.png)
+
+### Research
+Mijn research heb ik geschreven over Bcrypt. Mijn hoofdvraag was "Is het veilig om met Bcrypt wachtwoorden op te slaan?". 
+Met de volgende deelvragen:
+- Wat is Bcrypt?
+- Hoe werkt Bcrypt?
+- Waarom is Bcrypt veilig?
+- Hoe implementeer je Bcrypt?
+
+Alles is terug te vinden in de [Biddify-main](https://github.com/Biddify/biddify-main) repository in `Password-encryption-algorithm-research.md`.
+
+![](https://i.ibb.co/rfDt8tS/Github-research.png)

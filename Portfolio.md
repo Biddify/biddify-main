@@ -148,8 +148,8 @@ jobs:
 ## 3. You design and implement a (semi)automated software release process.
 
 ### Docker images/containers
-Voor mijn project heb ik momenteel 4 docker containers, front-end React.js, Product Node.js, Product MySQL, Product MySQL admin. 
-In de readme.md van de [Biddify-main](https://github.com/Biddify/biddify-main) repository staat een uitleg hoe alle docker containers op te starten.
+Voor mijn project heb ik momenteel 4 docker containers draaien, front-end React.js, product Node.js, product MySQL, product MySQL admin. 
+Onder [Docker](https://github.com/Biddify/biddify-main/tree/development#docker) in de readme.md van de [Biddify-main](https://github.com/Biddify/biddify-main) repository staat een uitleg hoe alle containers op te starten.
 
 <table>
     <tr>
@@ -204,7 +204,7 @@ steps:
 
 Voor Biddify heb ik twee project dashboarden gemaakt. De eerste is voor de user stories en de status (ToDo, In Progress & Done) hiervan. 
 In de overschrijving van elke issue staat een lijstje met dingen die gedaan moeten worden voordat deze gesloten kan worden.
-Het andere dashboard is voor bugs. In de omschrijving staat een uitleg van het probleem. En eventueel wat er al onderzocht is. 
+Het andere dashboard is voor bugs. In de omschrijving staat een uitleg van het probleem. En wat er eventueel al onderzocht is.
 
 <table>
     <tr>
@@ -218,7 +218,10 @@ Het andere dashboard is voor bugs. In de omschrijving staat een uitleg van het p
 </table>
 
 ### Research
-Mijn research heb ik geschreven over Bcrypt. Mijn hoofdvraag was "Is het veilig om met Bcrypt wachtwoorden op te slaan?". 
+Mijn research heb ik geschreven over [Bcrypt](https://en.wikipedia.org/wiki/Bcrypt). 
+
+De hoofdvraag was "Is het veilig om met Bcrypt wachtwoorden op te slaan?". 
+
 Met de volgende deelvragen:
 - Wat is Bcrypt?
 - Hoe werkt Bcrypt?

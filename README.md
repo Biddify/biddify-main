@@ -1,4 +1,6 @@
-![5wbn06](https://user-images.githubusercontent.com/33746824/144393714-eaa2554e-a483-4519-ad94-f83c43b01a11.gif)
+<div align="center">
+    <img width="400px" height="100%" src="https://user-images.githubusercontent.com/33746824/144393714-eaa2554e-a483-4519-ad94-f83c43b01a11.gif">
+</div>
 
 # Biddify | Rob Rutjes | Fontys ICT | Semester 3
 
@@ -106,6 +108,12 @@ To ignore folders/files add them to the `pakage.json`. All paths in the project 
     ]
   }
 ```
+
+## C4 Model
+In the C4 level 2 model below you can see how all the services work together. 
+Service starting with API are returning JSON, all database are using MySQL ,the front-end is written in React.js. 
+
+![](https://i.ibb.co/WsHcPjz/22-01-12-RR-C4-Model-Biddify-Versie-2-drawio.png)
 
 ## Branch
 Pushing to the `master` branch is locked.

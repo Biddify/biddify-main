@@ -27,14 +27,14 @@ Als je een applicatie maakt waarbij een gebruiker moet kunnen inloggen, krijg je
 Het opslaan van wachtwoorden brengt beveiligingsrisico's met zich mee. Bijvoorbeeld een hacker die in uw database inbreekt en alle wachtwoorden steelt. 
 Hoe kun je het beste wachtwoorden opslaan op een veilige manier? 
 
-| Tier   |        Beveiliging         |  
-|--------|:--------------------------:|
-| S-tier  |            ???            |
-| A-tier |        Slow Hashing        |
-| B-tier | Hashing + Salting (Bcrypt) |
-| C-tier |          Hashing           |
-| D-tier |         Encrypting         |
-| F-tier |     Storing Plaintext      |
+| Tier   |    Beveiliging    |  
+|--------|:-----------------:|
+| S-tier  |        ???        |
+| A-tier |   Slow Hashing    |
+| B-tier | Hashing + Salting |
+| C-tier |      Hashing      |
+| D-tier |    Encrypting     |
+| F-tier | Storing Plaintext |
 
 Hierboven staat een tabel, met onderaan de slechtste manier om dit te toen.  
 De `F-tier` manier om data op te slaan is net zoals normale text. Als er een inbraak plaats vind op uw database heeft de hacker gelijk toegang tot alle wachtwoorden. 

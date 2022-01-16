@@ -13,9 +13,12 @@ De product API verzorgt het bijhouden van alle product informatie.
 De API is geschreven in Node.js met het ORM (object-relational mapping) framework [Sequelize](https://sequelize.org/). 
 In de achtergrond is een MySQL database gekoppeld. 
 
-![](https://i.ibb.co/bdfR0hZ/Product-api-response.png)
-
-![](https://i.ibb.co/frcG7Zv/Product-api-routes.png)
+<table>
+    <tr>
+        <td><img src="https://i.ibb.co/bdfR0hZ/Product-api-response.png"></td>
+        <td><img src="https://i.ibb.co/frcG7Zv/Product-api-routes.png"></td>
+    </tr>
+</table>
 
 Bron:
 - [biddify-product-node.js](https://github.com/Biddify/biddify-product-node.js)
@@ -24,13 +27,16 @@ Bron:
 Voor de front-end moet je in semester 3 een framework kiezen. 
 Hiervoor heb ik React.js gekozen. De (simpele) applicatie bestaat uit een producten overzicht, het aanmaken/bijwerken van producten en het verwijderen hiervan.
 
-![](https://i.ibb.co/xj3TgJ7/Product-list.png)
-
-![](https://i.ibb.co/gVsvMps/Product-add.png)
-
-![](https://i.ibb.co/4p18qJY/Product-update.png)
-
-![](https://i.ibb.co/M61snXy/Product-view.png)
+<table>
+    <tr>
+        <td><img src="https://i.ibb.co/xj3TgJ7/Product-list.png"></td>
+        <td><img src="https://i.ibb.co/gVsvMps/Product-add.png)"></td>
+    </tr>
+    <tr>
+        <td><img src="https://i.ibb.co/4p18qJY/Product-update.png"></td>
+        <td><img src="https://i.ibb.co/M61snXy/Product-view.png)"></td>
+    </tr>
+</table>
 
 Bron:
 - [biddify-react.js](https://github.com/Biddify/biddify-react.js)
@@ -40,7 +46,11 @@ Het inlog/registratie systeem laat ik afhandelen door [Auth0](https://auth0.com/
 Zelf is het lastig om een veilig login/registratie systeem te bouwen. 
 Momenteel zijn producten nog niet gekoppeld aan gebruikers, maar dit kan later zeer eenvoudig toegevoegd worden. 
 
-![](https://i.ibb.co/tbf7PbK/Auth0.png)
+<table>
+    <tr>
+        <td><img src="https://i.ibb.co/B6bMHCp/Auth0.jpg"></td>
+    </tr>
+</table>
 
 Bron:
 - [biddify-react.js](https://github.com/Biddify/biddify-react.js)
@@ -52,7 +62,11 @@ Testen zijn erg belangrijk, deze helpen bij het voorkomen van bugs in de applica
 Ik maak gebruik van een test database omdat dit aangereden/ondersteund is door Sequelize. Op het begin van dit semester gebruikte ik hiervoor een MySQL database, maar omdat deze veel opstart tijd heeft, ben ik later overgeschakeld naar een SQLite database. 
 De onderstaande testen zijn integratie testen, unit testen zijn in mijn geval overbodig omdat ik hiermee alleen de ORM zou testen, als het goed is test Sequelize dit zelf. 
 
-![](https://i.ibb.co/3spNkZp/Product-tests.png)
+<table>
+    <tr>
+        <td><img src="https://i.ibb.co/3spNkZp/Product-tests.png"></td>
+    </tr>
+</table>
 
 ### Automatisch testen op pull requests
 De bovenstaande integratie testen worden automatisch uitgevoerd op een pull request naar de master branch.  
@@ -118,11 +132,16 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 ```
 
-![](https://i.ibb.co/L8ywdkp/Sonarcloud.png)
-
-![](https://i.ibb.co/19Xb6LX/Github-actions.png)
-
-![](https://i.ibb.co/89Bh0Z9/Github-actions-sonarcloud.png)
+<table>
+    <tr>
+        <td><img src="https://i.ibb.co/L8ywdkp/Sonarcloud.png"></td>
+        <td><img src="https://i.ibb.co/19Xb6LX/Github-actions.png"></td>
+    </tr>
+    <tr>
+        <td><img src="https://i.ibb.co/89Bh0Z9/Github-actions-sonarcloud.png"></td>
+        <td><img src="https://i.ibb.co/fY0D8SW/Sonarcloud-dashboard.png"></td>
+    </tr>
+</table>
 
 ### Code review GitHub
 
@@ -132,9 +151,12 @@ jobs:
 Voor mijn project heb ik momenteel 4 docker containers, front-end React.js, Product Node.js, Product MySQL, Product MySQL admin. 
 In de readme.md van de [Biddify-main](https://github.com/Biddify/biddify-main) repository staat een uitleg hoe alle docker containers op te starten.
 
-![](https://i.ibb.co/92mmrBd/Dockerhub.png)
-
-![](https://i.ibb.co/VLNSkZb/Docker-desktop.png)
+<table>
+    <tr>
+        <td><img src="https://i.ibb.co/92mmrBd/Dockerhub.png"></td>
+        <td><img src="https://i.ibb.co/VLNSkZb/Docker-desktop.png"></td>
+    </tr>
+</table>
 
 Nadat de `Build` en `SonarCloud` GitHub actions succesvol zijn uitgevoerd, draait automatisch het aanmaken van de [Docker](https://www.docker.com/) image, als deze is aangemaakt stuurt hij deze door naar mijn [DockerHub](https://hub.docker.com/) account.
 
@@ -169,9 +191,12 @@ steps:
     run: echo ${{ steps.docker_build.outputs.digest }}
 ```
 
-![](https://i.ibb.co/prWVF37/Github-actions-docker.png)
-
-![](https://i.ibb.co/VQvjS2h/Dockerhub-product-service.png)
+<table>
+    <tr>
+        <td><img src="https://i.ibb.co/prWVF37/Github-actions-docker.png"></td>
+        <td><img src="https://i.ibb.co/VQvjS2h/Dockerhub-product-service.png"></td>
+    </tr>
+</table>
 
 ## 4. You act in a professional manner during software development and learning.
 
@@ -181,13 +206,16 @@ Voor Biddify heb ik twee project dashboarden gemaakt. De eerste is voor de user 
 In de overschrijving van elke issue staat een lijstje met dingen die gedaan moeten worden voordat deze gesloten kan worden.
 Het andere dashboard is voor bugs. In de omschrijving staat een uitleg van het probleem. En eventueel wat er al onderzocht is. 
 
-![](https://i.ibb.co/vqjbFVY/Github-project-dashboard.png)
-
-![](https://i.ibb.co/0243qfT/Github-issue-feature.png)
-
-![](https://i.ibb.co/8s2wgRt/Github-issue-dashboard.png)
-
-![](https://i.ibb.co/pWdk2MM/Github-issue-bug.png)
+<table>
+    <tr>
+        <td><img src="https://i.ibb.co/vqjbFVY/Github-project-dashboard.png"></td>
+        <td><img src="https://i.ibb.co/0243qfT/Github-issue-feature.png"></td>
+    </tr>
+    <tr>
+        <td><img src="https://i.ibb.co/8s2wgRt/Github-issue-dashboard.png"></td>
+        <td><img src="https://i.ibb.co/pWdk2MM/Github-issue-bug.png"></td>
+    </tr>
+</table>
 
 ### Research
 Mijn research heb ik geschreven over Bcrypt. Mijn hoofdvraag was "Is het veilig om met Bcrypt wachtwoorden op te slaan?". 
@@ -199,4 +227,8 @@ Met de volgende deelvragen:
 
 Alles is terug te vinden in de [Biddify-main](https://github.com/Biddify/biddify-main) repository in `Password-encryption-algorithm-research.md`.
 
-![](https://i.ibb.co/rfDt8tS/Github-research.png)
+<table>
+    <tr>
+        <td><img src="https://i.ibb.co/rfDt8tS/Github-research.png"></td>
+    </tr>
+</table>

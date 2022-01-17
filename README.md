@@ -5,7 +5,6 @@
 # Biddify | Rob Rutjes | Fontys ICT | Semester 3
 
 ## Repository
-
 #### [Biddify-main](https://github.com/Biddify/biddify-main)
 [![GitHub issues](https://img.shields.io/github/issues/Biddify/biddify-main?logo=GitHub)](https://github.com/Biddify/biddify-main/issues)
 
@@ -18,7 +17,6 @@
 [![GitHub issues](https://img.shields.io/github/issues/Biddify/biddify-react.js?logo=GitHub)](https://github.com/Biddify/biddify-react.js/issues)
 
 ## Getting Started
-
 Welcome the biddify repository! 
 
 If you are new here carefully read this readme as it contains helpful information. This way you should have all the information needed to collaborate on the project. 
@@ -45,14 +43,13 @@ All tests can be found in the `/test` folder of the project.
 
 If not already exists you can create your own test file here.
 
-For example `product.test.js`.
+Example `product.test.js`.
 
 All tests are based on user stories, the name/description of the test should make this clear. 
 
-For example `describe('US-04 | Als verkoper, wil ik een product kunnen aanbieden, zodat ik deze kan verkopen')`.
+Example `describe('US-04 | Als verkoper, wil ik een product kunnen aanbieden, zodat ik deze kan verkopen')`.
 
 ## Planning
-
 For an overview of where the project stands at the moment view the Biddify [GitHub Projects](https://github.com/orgs/Biddify/projects/1) dashboard.
 In this dashboard you can view which features still need to be implemented and the priority of them.
 When you start implementing the status of a feature goes to "in progress" when fully implemented the status goes to "done".
@@ -60,7 +57,6 @@ When you start implementing the status of a feature goes to "in progress" when f
 Every user story is stored as an issue, in the description are the acceptance criteria for the user story. 
 
 ## Docker
-
 To start the (complete) project in Docker you need to download/pull the biddify-main repository.
 
 In the root folder open a terminal window and run the following command to get inside the biddify-main folder.
@@ -83,7 +79,6 @@ Finally, to start all the project containers in docker you run the following com
 | biddify-react.js | [http://localhost:3001](http://localhost:3001)  |
 
 ## API Documentation
-
 The API documentation is automatically generated with [Swagger](https://swagger.io/). 
 
 After `http://localhost:{PORT}` add `/api-docs` for the Swagger documentation. 
@@ -91,7 +86,6 @@ After `http://localhost:{PORT}` add `/api-docs` for the Swagger documentation.
 For example (product API): `http://localhost:3002/api-docs`. 
 
 ## Coding Conventions
-
 In Biddify we use the third party addon [Standard JS](https://github.com/standard/standard) for keeping the JavaScript coding conventions in line.
 
 How to use Standard JS?
@@ -134,6 +128,5 @@ The unit tests & code analysis will run automatically.
 When the pull request is accepted the docker image is automatically updated.
 
 ## Pull Request
-
 Within all the Biddify repositories we use pull requests to the `master` branch. 
 A pull request should be reviewed within 2 working days after creation. 

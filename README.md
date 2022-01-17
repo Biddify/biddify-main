@@ -41,6 +41,16 @@ To run unit/integration tests run the following command.
 npm test
 ```
 
+All tests can be found in the `/test` folder of the project. 
+
+If not already exists you can create your own test file here.
+
+For example `product.test.js`.
+
+All tests are based on user stories, the name/description of the test should make this clear. 
+
+For example `describe('US-04 | Als verkoper, wil ik een product kunnen aanbieden, zodat ik deze kan verkopen')`.
+
 ## Planning
 
 For an overview of where the project stands at the moment view the Biddify [GitHub Projects](https://github.com/orgs/Biddify/projects/1) dashboard.
@@ -111,7 +121,7 @@ To ignore folders/files add them to the `pakage.json`. All paths in the project 
 
 ## C4 Model
 In the C4 level 2 model below you can see how all the services work together. 
-Service starting with API are returning JSON, all database are using MySQL ,the front-end is written in React.js. 
+Services starting with API are returning JSON, all database are using MySQL, the front-end is written in React.js. 
 
 ![](https://i.ibb.co/WsHcPjz/22-01-12-RR-C4-Model-Biddify-Versie-2-drawio.png)
 

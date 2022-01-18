@@ -56,6 +56,10 @@ When you start implementing the status of a feature goes to "in progress" when f
 
 Every user story is stored as an issue, in the description are the acceptance criteria for the user story. 
 
+There also is an [issue dashboard](https://github.com/orgs/Biddify/projects/2) with all the created issues. 
+Every issue has a priority, status and an assignee.
+In the description is a problem written down. And what has already been researched. 
+
 ## Docker
 To start the (complete) project in Docker you need to download/pull the biddify-main repository.
 
